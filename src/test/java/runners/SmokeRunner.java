@@ -21,7 +21,7 @@ import org.junit.runner.RunWith;
         // it will remove the unreadable text from the console and make the console readable
         monochrome = true,
 
-        tags=" @errorData",
+        tags="@excel",
 
         plugin = "pretty"
 

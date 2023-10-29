@@ -9,7 +9,10 @@ import pages.LoginPage;
 import utils.CommonMethods;
 import utils.ConfigReader;
 import io.cucumber.datatable.DataTable;
+import utils.Constants;
+import utils.ExcelReader;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -102,5 +105,28 @@ public class LoginSteps extends CommonMethods {
             Assert.assertEquals("value does not match", errorMessage, actualErrorMessage);
         }
 
+    }
+
+
+    @When("user add username and password from excel {string} and verify the error message")
+    public void user_add_username_and_password_from_excel_and_verify_the_error_message(String testData) {
+       List<Map<String, String>>  excelLoginData= ExcelReader.excelIntoListMap(Constants.excelFilePath, testData);
+
+       LoginPage loginPage=new LoginPage();
+
+        Iterator<Map<String ,String>>  it=excelLoginData.iterator();
+
+        while (it.hasNext()){
+            Map<String , String> newMap=it.next();
+            sendText(loginPage.userNameBox, newMap.get("username"));
+            sendText(loginPage.passwordBox, newMap.get("password"));
+            click(loginPage.submitBtn);
+            System.out.println(newMap);
+
+            String actualErrorMessage=loginPage.errorMessage.getText();
+
+            Assert.assertEquals(actualErrorMessage, newMap.get("errormessage"));
+            System.out.println("the test case passed");
+        }
     }
 }
