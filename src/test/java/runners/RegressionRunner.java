@@ -21,13 +21,13 @@ import org.junit.runner.RunWith;
         // it will remove the unreadable text from the console and make the console readable
         monochrome = true,
 
-        tags="@smoke",
+        tags="@regression",
 
         plugin ={ "pretty", "html:target/cucumber.html", "json:target/cucumber.json", "rerun:target/failed.txt" }
 
-
+        
 )
 
-public class SmokeRunner {
+public class RegressionRunner {
 
 }

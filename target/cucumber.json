@@ -1,0 +1,100 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2023-10-29T18:18:02.394Z",
+        "before": [
+          {
+            "result": {
+              "duration": 5196000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "steps.Hooks.start()"
+            }
+          }
+        ],
+        "line": 18,
+        "name": "invalid login with empty username",
+        "description": "",
+        "id": "login;invalid-login-with-empty-username",
+        "after": [
+          {
+            "result": {
+              "duration": 763000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "steps.Hooks.end()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 216000000,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "user does not add username",
+            "match": {
+              "location": "steps.LoginSteps.user_does_not_add_username()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 110000000,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "user add valid password",
+            "match": {
+              "location": "steps.LoginSteps.user_add_valid_password()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 426000000,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "user click on the login button",
+            "match": {
+              "location": "steps.LoginSteps.user_click_on_the_login_button()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "error_message": "org.junit.ComparisonFailure: expected:\u003c...nd Password is requi[red]\u003e but was:\u003c...nd Password is requi[]\u003e\r\n\tat org.junit.Assert.assertEquals(Assert.java:117)\r\n\tat org.junit.Assert.assertEquals(Assert.java:146)\r\n\tat steps.LoginSteps.user_validate_error_message_credentials_are_required(LoginSteps.java:79)\r\n\tat ✽.user validate error message credentials are required(file:///C:/Users/azizu/IdeaProjects/CucumberFrameworkBatch2/src/test/resources/features/Login.feature:22)\r\n",
+              "duration": 135000000,
+              "status": "failed"
+            },
+            "line": 22,
+            "name": "user validate error message credentials are required",
+            "match": {
+              "location": "steps.LoginSteps.user_validate_error_message_credentials_are_required()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@regression"
+          }
+        ]
+      }
+    ],
+    "name": "Login",
+    "description": "",
+    "id": "login",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/Login.feature",
+    "tags": []
+  }
+]
