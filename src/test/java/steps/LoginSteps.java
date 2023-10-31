@@ -59,7 +59,7 @@ public class LoginSteps extends CommonMethods {
 
     @Then("validate user see error message")
     public void validate_user_see_error_message() {
-        String expectedText="Username and Password is Wrong";
+        String expectedText="Username and Password is Wrong!";
         LoginPage loginPage=new LoginPage();
         String actualText=loginPage.errorMessage.getText();
         Assert.assertEquals(actualText, expectedText);

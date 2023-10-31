@@ -1,6 +1,9 @@
 package utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,7 +11,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 
 public class CommonMethods {
     public static WebDriver driver;
@@ -59,6 +66,28 @@ public class CommonMethods {
         waitForClickability(element);
         element.click();
     }
+
+    public  static byte [] takeScreenShot(String fileName){
+        TakesScreenshot ts=(TakesScreenshot) driver;
+
+        byte [] picBytes=ts.getScreenshotAs(OutputType.BYTES);
+
+        File sourceFile=ts.getScreenshotAs(OutputType.FILE);
+       try{
+           FileUtils.copyFile(sourceFile, new File(Constants.screenShotPath +
+                   fileName + " " + timeStamp("YYYY-MM-dd-HH-mm-ss")+ ".png"));
+       }catch(IOException e){
+           e.printStackTrace();
+       }
+      return picBytes;
+    }
+
+    public static String timeStamp( String pattern){
+        Date date=new Date();
+        SimpleDateFormat sdf=new SimpleDateFormat(pattern);
+        return sdf.format(date);
+    }
+
 
     public static void closeBrowser(){
         driver.quit();

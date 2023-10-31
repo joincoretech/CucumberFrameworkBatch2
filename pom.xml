@@ -71,7 +71,7 @@
 
             <configuration>
                 <includes>
-                    <include>**/**/*.java</include>
+                    <include>**/**/SmokeRunner.java</include>
                 </includes>
                 <testFailureIgnore>true</testFailureIgnore>
             </configuration>
