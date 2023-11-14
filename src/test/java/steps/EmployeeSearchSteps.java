@@ -9,6 +9,7 @@ import pages.EmployeeViewPage;
 import pages.LoginPage;
 import utils.CommonMethods;
 import utils.ConfigReader;
+import utils.GlobalVariables;
 
 public class EmployeeSearchSteps extends CommonMethods {
 
@@ -68,5 +69,18 @@ public class EmployeeSearchSteps extends CommonMethods {
         employeeViewPage.searchBox.sendKeys(data);
     }
 
-
+    @When("user get data from employee view page")
+    public void user_get_data_from_employee_view_page() {
+        EmployeeViewPage employeeViewPage=new EmployeeViewPage();
+       sendText(employeeViewPage.searchBox, "13");
+       click(employeeViewPage.submitBtn);
+       GlobalVariables.fullName=employeeViewPage.fullName.getText();
+    }
+    @Then("suer verify frontend data with backend")
+    public void suer_verify_frontend_data_with_backend() {
+       System.out.println(GlobalVariables.dbFirstName+" "+GlobalVariables.dbMiddleName+" "+GlobalVariables.dbLastName);
+       String dbFullName=GlobalVariables.dbFirstName+" "+GlobalVariables.dbMiddleName+" "+GlobalVariables.dbLastName;
+       System.out.println(GlobalVariables.fullName);
+       Assert.assertEquals(dbFullName, GlobalVariables.fullName);
+    }
 }
