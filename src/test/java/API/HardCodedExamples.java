@@ -17,7 +17,7 @@ public class HardCodedExamples {
     // -- When : making a request to send
     // -- Then : Verification/ Assertion
 
-    static  String token="Bearer QpwL5tke4Pnpja7X4";
+     String token="Bearer QpwL5tke4Pnpja7X4";
 
    // @Test
     public void sampleTest(){
