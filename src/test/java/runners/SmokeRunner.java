@@ -21,7 +21,7 @@ import org.junit.runner.RunWith;
         // it will remove the unreadable text from the console and make the console readable
         monochrome = true,
 
-        tags="@db",
+        tags="@smoke",
 
         plugin ={ "pretty", "html:target/cucumber.html", "json:target/cucumber.json", "rerun:target/failed.txt" }
 
