@@ -4,9 +4,6 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Test;
-
-
-import static com.sun.webkit.perf.WCGraphicsPerfLogger.log;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
